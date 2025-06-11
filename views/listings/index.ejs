@@ -1,0 +1,137 @@
+<% layout("/layouts/biolerPlate") %>
+
+<style>
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 1.4rem;
+    /* flex-direction: row; */
+  }
+  .filter {
+    text-align: center;
+    /* font-size: 1.15rem; */
+    margin-right: 1.4rem;
+    /* margin-top: 2rem; */
+    opacity: 0.7;
+    transition: 0.6s all ease;
+  }
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .taxInfo {
+    display: none;
+  }
+  .tax-toggle {
+    border: 1px solid black;
+    border-radius: 0.8rem;
+            height: 3.4rem;
+            display: flex;
+            align-items: center;
+            padding:1rem ;
+            margin-left: 2.4rem;
+  }
+</style>
+<body>
+  <div class="filters">
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-solid fa-fire"></i></div>
+      <div class="icon-desc">Trending</div>
+    </div>
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-solid fa-bed"></i></div>
+      <div class="icon-desc">Rooms</div>
+    </div>
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-solid fa-tree-city"></i></div>
+      <div class="icon-desc">Iconic Cities</div>
+    </div>
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-solid fa-mountain-sun"></i></div>
+      <div class="icon-desc">Mountains</div>
+    </div>
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-brands fa-fort-awesome"></i></div>
+      <div class="icon-desc">Castles</div>
+    </div>
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-solid fa-person-swimming"></i></div>
+      <div class="icon-desc">Amazing Pools</div>
+    </div>
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-solid fa-campground"></i></div>
+      <div class="icon-desc">Camping</div>
+    </div>
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-solid fa-cow"></i></div>
+      <div class="icon-desc">Farms</div>
+    </div>
+    <div class="filter">
+      <div class="nav_icon"><i class="fa-solid fa-snowflake"></i></div>
+      <div class="icon-desc">Arctic</div>
+    </div>
+    <div class="filter">
+        <div class="nav_icon"><i class="fa-solid fa-igloo"></i></div>
+        <div class="icon-desc">Domes</div>
+      </div>
+      <div class="filter">
+        <div class="nav_icon"><i class="fa-solid fa-ship"></i></div>
+        <div class="icon-desc">Boat</div>
+      </div>
+    <div class="tax-toggle">
+      <div class="form-check form-switch form-check-reverse">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+          style="margin-top: 0.4rem;"
+        />
+        <label class="form-check-label" for="flexSwitchCheckDefault"
+          >Display total after taxes</label
+        >
+      </div>
+    </div>
+  </div>
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
+    <% for(list of listing){ %>
+    <a href="/listings/<%= list._id %>" class="list-link">
+      <div class="card listing-card">
+        <img
+          src="<%= list.image.url %>"
+          class="card-img-top"
+          alt="list-image"
+          style="height: 20rem"
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <h5 class="card-title"><b> <%= list.title %> </b></h5>
+          <div
+            class="card-text"
+            style="display: flex; justify-content: space-between"
+          >
+            <p class="card-text">
+              &#8377; <%= list.price.toLocaleString("en-IN") %> / night
+            </p>
+            <i class="taxInfo">&nbsp;+18% GST</i>
+          </div>
+        </div>
+      </div>
+    </a>
+    <% } %>
+  </div>
+  <script>
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click", () => {
+      let taxInfo = document.getElementsByClassName("taxInfo");
+      for (const el of taxInfo) {
+        if (el.style.display != "inline") {
+          el.style.display = "inline";
+        } else {
+          el.style.display = "none";
+        }
+      }
+    });
+  </script>
+</body>
