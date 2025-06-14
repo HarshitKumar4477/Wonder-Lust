@@ -1,0 +1,32 @@
+
+<div class="relative bg-white rounded-2xl overflow-hidden shadow hover:shadow-xl transform hover:scale-[1.03] transition duration-300 ease-in-out">
+  <img
+    src="<%= place.image %>"
+    alt="<%= place.name %>"
+    class="w-full h-52 object-cover"
+  />
+  <div class="p-4">
+    <h3 class="text-lg font-semibold text-gray-800 truncate"><%= place.name %></h3>
+    <p class="text-sm text-gray-500"><%= place.location %></p>
+    <div class="flex justify-between items-center mt-2">
+      <span class="text-blue-600 font-bold">₹<%= place.price %> / night</span>
+      <a href="/place/<%= place._id %>" class="text-sm text-blue-500 hover:underline">View →</a>
+    </div>
+  </div>
+  <!-- Optional badge or tag like "Trending" -->
+  <% if (place.tag) { %>
+    <div class="absolute top-2 left-2 bg-black/60 text-white px-2 py-1 text-xs rounded">
+      <%= place.tag %>
+    </div>
+  <% } %>
+</div>
+<!-- Optional: Add a hover effect or animation -->
+<!-- <style>
+  .trip-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .trip-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  } -->
