@@ -1,0 +1,122 @@
+.trip-card {
+  width: 330px;
+  border-radius: 16px;
+  overflow: hidden;
+  font-family: sans-serif;
+  margin: 2rem;
+  transition: transform 0.4s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.trip-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.trip-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: filter 0.3s ease;
+}
+
+.trip-card-like {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+}
+
+.trip-card-like .material-symbols-outlined {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Hidden initially */
+.trip-card-actions,
+.trip-details {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.trip-card-actions {
+  position: absolute;
+  bottom: 1rem;
+  right: 0.5rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.trip-card-actions .material-symbols-outlined {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px;
+  border-radius: 50%;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.trip-details {
+  position: absolute;
+  bottom: 0;
+   color: #cccccc;
+  /* background: white; */
+  width: 100%;
+  padding: 1rem;
+  z-index: 1;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.trip-details h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+   color: #cccccc;
+}
+
+.trip-details p {
+  margin: 4px 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+   color: #cccccc;
+}
+
+.trip-price {
+ font-size: 0.75rem;
+  font-weight: 500;
+   color: #cccccc;
+}
+
+.trip-price a {
+   color: #cccccc;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+/* === Hover Effects === */
+.trip-card:hover {
+  transform: scale(1.2) translateY(0) translateX(20px);
+  z-index: 5;
+  border: #333 solid 0.75px;
+
+}
+
+.trip-card:hover .trip-img {
+  filter: brightness(30%);
+    /* transform: translateY(0) translateX(20px); */
+}
+
+.trip-card:hover .trip-card-actions,
+.trip-card:hover .trip-details {
+  opacity: 1;
+  /* transform: translateY(0) translateX(20px); */
+}
+
