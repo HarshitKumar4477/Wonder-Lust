@@ -119,7 +119,8 @@
         <!-- Card Text Info (hidden before hover) -->
         <div class="trip-details">
           <h3 class="trip-title"><%= list.title %></h3>
-          <p class="trip-location"><%= place.location %></p>
+          <p class="trip-location"><%= list.location %>,
+        <%= list.country %></p>
           <p class="trip-price">
             &#8377; <%= list.price.toLocaleString("en-IN") %> per night</span>
              <i class="taxInfo">&nbsp;+18% GST</i>
@@ -144,3 +145,5 @@
     });
   </script>
 </body>
+
+ 
